@@ -1,0 +1,109 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data tables</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+</head>
+
+<style>
+    td {
+        text-align: center;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 75%;
+        /* вирівнювання таблиці по центру */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* table, */
+    
+    td,
+    th {
+        border: 1px solid black;
+        border-radius: 3px;
+        border-style: outset;
+    }
+    
+    td,
+    th {
+        /* no effect */
+        margin: 2px;
+        /* some effect */
+        padding: 3px;
+    }
+</style>
+
+
+<body>
+
+    <!-- <table></table> -->
+    <!-- <thead></thead> -->
+    <!-- <tbody></tbody> -->
+
+    <!-- <tr></tr>  table row-->
+    <!-- <th></th> table header -->
+    <!-- <td></td> table data - cell content -->
+    <!-- colspan -->
+    <!-- rowspan -->
+
+    <div>
+        <table ">
+            <caption>Data table</caption>
+            <thead>
+
+                <tr>
+                    <th rowspan="2 ">Id</th>
+                    <th rowspan="2 ">Name</th>
+                    <th rowspan="2 ">Birth date</th>
+                    <th rowspan="2 ">PIN</th>
+                    <th colspan="3 ">Contact data</th>
+                </tr>
+
+                <tr>
+                    <th>E-Mail</th>
+                    <th>Work phone</th>
+                    <th>Home phone</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>ABD</td>
+                    <td>19.01.2018</td>
+                    <td>7598426310</td>
+                    <td>sample@gmail.com</td>
+                    <td>454561216</td>
+                    <td>455465464</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>GJY</td>
+                    <td>05.02.2017</td>
+                    <td>1574268930</td>
+                    <td>example@gmail.com</td>
+                    <td>898987547</td>
+                    <td>534554654</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td>Max</td>
+                    <td>250</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+
+</body>
+
+</html>
