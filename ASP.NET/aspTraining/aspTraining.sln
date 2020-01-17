@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTrainingDiary", "GymTrainingDiary\GymTrainingDiary.csproj", "{B0053DDA-7D6F-49ED-804C-83C80C9DB2CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTrainingDiary.Tests", "GymTrainingDiary.Tests\GymTrainingDiary.Tests.csproj", "{99D202D5-0616-48DE-B0E0-BD9FD9EBC7A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0053DDA-7D6F-49ED-804C-83C80C9DB2CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0053DDA-7D6F-49ED-804C-83C80C9DB2CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0053DDA-7D6F-49ED-804C-83C80C9DB2CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0053DDA-7D6F-49ED-804C-83C80C9DB2CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D202D5-0616-48DE-B0E0-BD9FD9EBC7A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D202D5-0616-48DE-B0E0-BD9FD9EBC7A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D202D5-0616-48DE-B0E0-BD9FD9EBC7A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D202D5-0616-48DE-B0E0-BD9FD9EBC7A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {629B3166-2E2B-485A-BB58-173269FB555B}
+	EndGlobalSection
+EndGlobal
