@@ -15,7 +15,7 @@ namespace GymTrainingDiary.Controllers
             var action = RouteData.Values["action"];
             var id = RouteData.Values["id"];
 
-            ViewBag.Message = $"{controller}::{action} {id}";
+            ViewBag.Message = $"{controller}:{action} {id}";
 
             return View();
         }

@@ -6,17 +6,23 @@ using System.Web.Mvc;
 
 namespace GymTrainingDiary.Controllers
 {
+    //[Authorize]
     public class ExcersisesController : Controller
     {
         // GET: Excersise
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Search", new { id = "Prisyad" });
         }
 
-        public ActionResult Search(string name)
+        //[Authorize]
+        public ActionResult Search(string id)
         {
-            return Content(name);
+            throw new InvalidOperationException("Ooops!");
+            //return Content(id);
+            //return RedirectToAction("Index");
+            //return File("D:\\StabPhotos\\Male.jpg", "image/jpg");
+            //return this.Json(new { Name = exName, Type = "Base excersise" }, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -17,7 +17,6 @@ namespace GymTrainingDiary
                 name: "Excersises",
                 url: "Excersise/{exName}",
                 defaults: new { controller = "Excersises", action = "Search", exName = UrlParameter.Optional }
-
                 );
 
 
