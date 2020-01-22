@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GymTrainingDiary.Model.Training>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of trainings</h2>
+<div>Displaying general info of @Model.Count() trainings</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+
+        <th>
+            Start Time
+        </th>
+
+        <th>
+           Finish Time
+        </th>
+
+        <th colspan="4">
+            User name
+        </th>
+
+    </tr>
+
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id, new { @style = "vertical-align:central" })
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.FinishTime)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.User.DisplayName)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-primary btn-large" })
+
+            @Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-primary btn-large" })
+
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-primary btn-large" })
+        </td>
+
+    </tr>
+}
+
+</table>
