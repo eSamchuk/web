@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<GymTrainingDiary.Model.Training>
 
+@using System.Globalization;
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,59 +9,79 @@
 <h2>List of trainings</h2>
 <div>Displaying general info of @Model.Count() trainings</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 
 <table class="table">
-    <tr>
-        <th>
-            Id
-        </th>
 
-        <th>
-            Start Time
-        </th>
+    <thead>
 
-        <th>
-           Finish Time
-        </th>
+        <tr>
+            <th>
+                Id
+            </th>
 
-        <th colspan="4">
-            User name
-        </th>
+            <th>
+                Start Time
+            </th>
 
-    </tr>
+            <th>
+                Finish Time
+            </th>
 
+            <th>
+                User name
+            </th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id, new { @style = "vertical-align:central" })
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="cells">
+                @{
+                    string t = string.Format("{0:0}", item.Id);
+                    @Html.DisplayFor(modelItem => t)
+                }
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.StartTime)
+            <td class="cells">
 
-        </td>
+                @{
+                    string st = item.StartTime.ToString("dd.MM.yyyy HH:mm");
+                    @Html.DisplayFor(modelItem => st)
+                }
 
-        <td>
-            @Html.DisplayFor(modelItem => item.FinishTime)
-        </td>
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.User.DisplayName)
-        </td>
+            <td class="cells">
+                @{
+                    string ft = item.FinishTime.ToString("dd.MM.yyyy HH:mm", CultureInfo.InvariantCulture);
+                    @Html.DisplayFor(modelItem => ft)
+                }
+            </td>
 
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-primary btn-large" })
+            <td class="cells">
+                @Html.DisplayFor(modelItem => item.User.DisplayName)
+            </td>
 
-            @Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-primary btn-large" })
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
+            </td>
 
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-primary btn-large" })
-        </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
+            </td>
 
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
+            </td>
+
+        </tr>
+    }
 
 </table>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+
