@@ -1,0 +1,59 @@
+﻿@model GymTrainingDiary.Model.Training
+
+@{
+    ViewBag.Title = "Detailes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Detailes</h2>
+
+<div>
+    <h4>Training</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingFinish)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingFinish)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainingDuration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainingDuration)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "ViewTrainings", null, new { @class ="btn btn-primary" })
+</p>

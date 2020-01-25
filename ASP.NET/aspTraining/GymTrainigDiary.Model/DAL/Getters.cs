@@ -8,7 +8,13 @@ namespace GymTrainingDiary.Model
 {
     public static partial class DbDataAccess
     {
-        public static IEnumerable<Excersise> Getexcersises()
+
+        public static IEnumerable<User> GetUsers()
+        {
+            return new GymTrainingContext().Users.ToList();
+        }
+
+        public static IEnumerable<Excersise> GetExcersises()
         {
             return new GymTrainingContext().Excersises
                 .Include(x => x.ExcersiseType)
@@ -22,6 +28,15 @@ namespace GymTrainingDiary.Model
                 .Include(x => x.User)
                 .ToList();
         }
+
+        public static Training GetTrainingById(decimal Id)
+        {
+            return new GymTrainingContext().Trainings
+               .Include(x => x.User)
+               .Include(x => x.Excersises)
+               .FirstOrDefault(x => x.Id == Id);
+        }
+
 
 
     }

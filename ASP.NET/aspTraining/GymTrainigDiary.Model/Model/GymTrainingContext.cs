@@ -11,9 +11,9 @@ namespace GymTrainingDiary.Model
     {
         public GymTrainingContext() : base("GymTrainingEntities")
         {
-            ////TODO
             Database.SetInitializer<GymTrainingContext>(new DbInitializer());
             this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

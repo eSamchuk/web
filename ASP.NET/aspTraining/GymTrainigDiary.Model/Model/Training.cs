@@ -16,10 +16,23 @@ namespace GymTrainingDiary.Model
         public decimal UserId { get; set; }
         public virtual User User { get; set; }
 
-        public DateTime StartTime { get; set; }
-        public DateTime FinishTime { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date of training")]
+        public DateTime TrainingDate { get; set; }
+
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = @"{0:hh\:mm}",  ApplyFormatInEditMode = true)]
+        [Display(Name = "Training stared")]
+        public TimeSpan TrainingStart { get; set; }
+
+        [DataType(DataType.Time)]
+        [DisplayFormat(DataFormatString = @"{0:hh\:mm}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Training finished")]
+        public TimeSpan TrainingFinish { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Display(Name = "Duration of training")]
         public TimeSpan TrainingDuration { get; set; }
 
         public virtual List<Excersise> Excersises { get; set; }
