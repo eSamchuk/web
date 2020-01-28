@@ -17,7 +17,7 @@ namespace GymTrainingDiary.Model
         public virtual User User { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Date of training")]
         public DateTime TrainingDate { get; set; }
 

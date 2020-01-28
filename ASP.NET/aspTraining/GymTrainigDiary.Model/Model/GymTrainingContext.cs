@@ -25,6 +25,7 @@ namespace GymTrainingDiary.Model
             modelBuilder.Entity<User>().Property(x => x.Id).HasPrecision(18, 0);
             modelBuilder.Entity<Permission>().Property(x => x.Id).HasPrecision(18, 0);
             modelBuilder.Entity<UserPermisssion>().Property(x => x.Id).HasPrecision(18, 0);
+            modelBuilder.Entity<UserProfileData>().Property(x => x.Id).HasPrecision(18, 0);
         }
 
         public DbSet<Training> Trainings { get; set; }
@@ -34,6 +35,7 @@ namespace GymTrainingDiary.Model
         public DbSet<User> Users { get; set; }
         public DbSet<UserPermisssion> UserPermisssions { get; set; }
         public DbSet<Permission> Permissions { get; set; }
+        public DbSet<UserProfileData> UserProfileDatas { get; set; }
 
 
 

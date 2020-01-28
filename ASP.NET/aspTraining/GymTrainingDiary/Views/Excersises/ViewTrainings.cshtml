@@ -7,8 +7,30 @@
 }
 
 <h2>List of trainings</h2>
-
+<br />
 <div>Displaying general info of @Model.Count() trainings</div>
+<br />
+
+<h2>Search filters</h2>
+
+<form method="get">
+
+    <input type="date" name="dateFromSearch" class="datePicker" />
+    <input type="submit" value="Training date from" />
+
+
+    <script>
+        //Date Picker
+        (function ()
+        {
+            $('dateFromSearch').datepicker();
+        });
+    </script>
+
+
+</form>
+
+
 
 <table class="table">
 
@@ -40,40 +62,8 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td class="cells">
-                @Html.DisplayFor(modelItem => item.User.DisplayName)
-            </td>
-
-            <td class="cells">
-
-                @{
-                    string td = item.TrainingDate.ToString("dd.MM.yyyy");
-                    @Html.DisplayFor(modelItem => td)
-                }
-
-            </td>
-
-            <td class="cells">
-                @{
-                    string st = item.TrainingStart.ToString();
-                    @Html.DisplayFor(modelItem => st)
-                }
-            </td>
-
-            <td class="cells">
-                @{
-                    string ft = item.TrainingFinish.ToString();
-                    @Html.DisplayFor(modelItem => ft)
-                }
-            </td>
-
-            <td class="cells">
-                @{
-                    string dt = item.TrainingDuration.ToString();
-                    @Html.DisplayFor(modelItem => dt)
-                }
-            </td>
-
+            
+            @Html.Partial("_TrainingTemplate", item)
 
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })

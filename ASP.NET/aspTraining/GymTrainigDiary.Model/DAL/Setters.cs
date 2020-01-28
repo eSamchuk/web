@@ -8,5 +8,14 @@ namespace GymTrainingDiary.Model
 {
     public static partial class DbDataAccess
     {
+        public static void SaveOrUpdateTraining(Training val)
+        {
+            var context = new GymTrainingContext();
+            context.Entry(val).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
+        }
+
+
+
     }
 }

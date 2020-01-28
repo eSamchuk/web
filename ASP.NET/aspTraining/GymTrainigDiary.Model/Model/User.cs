@@ -25,12 +25,12 @@ namespace GymTrainingDiary.Model
 
         public DateTime RegistrationDate { get; set; }
 
-        public DateTime LastLoginDate { get; set; }
+        public DateTime? LastLoginDate { get; set; }
 
 
+        public decimal ProfileDataId { get; set; }
+        public virtual UserProfileData ProfileData { get; set; }
 
-
-        public byte[] Photo { get; set; }
 
         public virtual List<UserPermisssion> Permissions { get; set; }
 

@@ -11,33 +11,54 @@ namespace GymTrainingDiary.Model
 
         public static IEnumerable<User> GetUsers()
         {
-            return new GymTrainingContext().Users.ToList();
+            using (var db = new GymTrainingContext())
+            {
+                return db.Users
+                .Where(x => x.IsActive)
+                .ToList();
+            }
         }
 
         public static IEnumerable<Excersise> GetExcersises()
         {
-            return new GymTrainingContext().Excersises
+            using (var db = new GymTrainingContext())
+            {
+                return db.Excersises
                 .Include(x => x.ExcersiseType)
                 .Include(x => x.RepeatSets.Select(y => y.WeightUnit))
                 .ToList();
+            }
         }
 
         public static IEnumerable<Training> GetTrainings()
         {
-            return new GymTrainingContext().Trainings
+            using (var db = new GymTrainingContext())
+            {
+                return db.Trainings
                 .Include(x => x.User)
                 .ToList();
+            }
         }
 
         public static Training GetTrainingById(decimal Id)
         {
-            return new GymTrainingContext().Trainings
+            using (var db = new GymTrainingContext())
+            {
+                return db.Trainings
                .Include(x => x.User)
                .Include(x => x.Excersises)
                .FirstOrDefault(x => x.Id == Id);
+            }
         }
 
+        public static void DeleteTraining(decimal id)
+        {
+            var context = new GymTrainingContext();
 
+            var remove = context.Trainings.Single(x => x.Id == id);
 
+            context.Trainings.Remove(remove);
+            context.SaveChanges();
+        }
     }
 }
