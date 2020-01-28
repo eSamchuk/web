@@ -19,9 +19,9 @@ namespace GymTrainingDiary.Controllers
             return View();
         }
 
-        public ActionResult ViewTrainings(DateTime? dateFromSearch = null)
+        public ActionResult ViewTrainings(decimal? Id = 0)
         {
-            return View(new List<Training>(DbDataAccess.GetTrainings().Where(x => dateFromSearch == null || x.TrainingDate >= dateFromSearch)));
+            return View(DbDataAccess.GetUserWithTrainingsByUserId(Id));
         }
 
         public ActionResult Create()

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<GymTrainingDiary.Model.Training>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainingStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainingFinish)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainingDuration)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainingStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainingFinish)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainingDuration)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -19,18 +19,34 @@ namespace GymTrainingDiary.Model
 
         public string Login { get; set; }
 
+        [Display(Name = "Password")]
         public string PasswordHash { get; set; }
 
+
+        [Display(Name = "Is active user")]
         public bool IsActive { get; set; }
 
+        [Display(Name = "Date of registration")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime RegistrationDate { get; set; }
 
+        [Display(Name = "Last login date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? LastLoginDate { get; set; }
 
 
-        public decimal ProfileDataId { get; set; }
-        public virtual UserProfileData ProfileData { get; set; }
+        public byte[] Photo { get; set; }
 
+        public string Name { get; set; }
+
+        public string Surname { get; set; }
+
+        [Display(Name = "Date of birth")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime? BirthDate { get; set; }
 
         public virtual List<UserPermisssion> Permissions { get; set; }
 

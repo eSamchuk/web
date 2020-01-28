@@ -13,9 +13,11 @@ namespace GymTrainingDiary.Model
         {
             using (var db = new GymTrainingContext())
             {
-                return db.Users
+                var t = db.Users
                 .Where(x => x.IsActive)
                 .ToList();
+
+                return t;
             }
         }
 
@@ -49,6 +51,50 @@ namespace GymTrainingDiary.Model
                .Include(x => x.Excersises)
                .FirstOrDefault(x => x.Id == Id);
             }
+        }
+
+        public static IEnumerable<Training> GetTrainingsByUserId(decimal? Id)
+        {
+            var result = Enumerable.Empty<Training>();
+            if (Id != null && Id != 0)
+            {
+
+                using (var db = new GymTrainingContext())
+                {
+                    result = db.Trainings
+                   .Include(x => x.User)
+                   .Include(x => x.Excersises)
+                   .Where(x => x.User.Id == Id).ToList();
+                }
+            }
+            else
+            {
+                using (var db = new GymTrainingContext())
+                {
+                    result = db.Trainings
+                   .Include(x => x.User)
+                   .Include(x => x.Excersises).ToList();
+                }
+            }
+
+            return result;
+        }
+
+        public static User GetUserWithTrainingsByUserId(decimal? Id)
+        {
+            User result = null;
+            if (Id != null && Id != 0)
+            {
+
+                using (var db = new GymTrainingContext())
+                {
+                    result = db.Users
+                   .Include(x => x.Trainings)
+                   .FirstOrDefault(x => x.Id == Id);
+                }
+            }
+
+            return result;
         }
 
         public static void DeleteTraining(decimal id)

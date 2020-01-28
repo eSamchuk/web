@@ -177,14 +177,17 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Excersises\Index.cshtml" />
     <Content Include="Views\Excersises\ViewTrainings.cshtml" />
     <Content Include="Views\Excersises\Edit.cshtml" />
     <Content Include="Views\Excersises\Details.cshtml" />
     <Content Include="Views\Excersises\_ViewStart.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Excersises\Create.cshtml" />
-    <Content Include="Views\Excersises\_TrainingTemplate.cshtml" />
+    <Content Include="Views\Excersises\_TrainingsTemplate.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

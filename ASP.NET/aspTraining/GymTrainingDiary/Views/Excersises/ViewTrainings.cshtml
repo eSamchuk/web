@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GymTrainingDiary.Model.Training>
+﻿@model GymTrainingDiary.Model.User
 
 @using System.Globalization;
 
@@ -8,82 +8,19 @@
 
 <h2>List of trainings</h2>
 <br />
-<div>Displaying general info of @Model.Count() trainings</div>
+<div>Displaying general info of @Model.Surname @Model.Name training(s)</div>
 <br />
 
-<h2>Search filters</h2>
+<p>
+    @Html.ActionLink("Add new training", "Create", Model.Id, new { @class = "btn btn-primary" })
+</p>
 
-<form method="get">
+<br />
 
-    <input type="date" name="dateFromSearch" class="datePicker" />
-    <input type="submit" value="Training date from" />
-
-
-    <script>
-        //Date Picker
-        (function ()
-        {
-            $('dateFromSearch').datepicker();
-        });
-    </script>
-
-
-</form>
-
-
-
-<table class="table">
-
-    <thead>
-
-        <tr>
-            <th>
-                User name
-            </th>
-
-            <th>
-                Date
-            </th>
-
-            <th>
-                Start Time
-            </th>
-
-            <th>
-                Finish Time
-            </th>
-
-            <th>
-                Duration
-            </th>
-        </tr>
-    </thead>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            
-            @Html.Partial("_TrainingTemplate", item)
-
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
-            </td>
-
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
-            </td>
-
-            <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-large" })
-            </td>
-
-        </tr>
-    }
-
-</table>
+@Html.Partial("_TrainingsTemplate", Model.Trainings)
 
 <p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Add new training", "Create", Model.Id, new { @class = "btn btn-primary" })
 </p>
 
 

@@ -30,17 +30,6 @@ namespace GymTrainingDiary.Model
             var alter = "alter table dbo.Trainings add TrainingDuration as dbo.CalculateTimeDiffAsTimeSpan(TrainingStart, TrainingFinish)";
             context.Database.ExecuteSqlCommand(alter);
                        
-            var pd = new UserProfileData()
-            {
-                BirthDate = new DateTime(1991, 08, 15),
-                Name = "Evhen",
-                Surname = "Samchuk",
-                Photo = File.ReadAllBytes("D:\\StabPhotos\\Male.jpg")
-            };
-
-            context.UserProfileDatas.Add(pd);
-            context.SaveChanges();
-
             var u = new User
             {
                 DisplayName = "Ramieru",
@@ -49,10 +38,28 @@ namespace GymTrainingDiary.Model
                 LastLoginDate = null,
                 Login = "ramieru5th",
                 PasswordHash = "1",
-                ProfileDataId = pd.Id
+                BirthDate = new DateTime(1991, 08, 15),
+                Name = "Evhen",
+                Surname = "Samchuk",
+                Photo = File.ReadAllBytes("D:\\StabPhotos\\Male.jpg")
+            };
+
+            var u2 = new User
+            {
+                DisplayName = "Inova_M",
+                IsActive = true,
+                RegistrationDate = DateTime.Today,
+                LastLoginDate = null,
+                Login = "mIonova",
+                PasswordHash = "12",
+                BirthDate = new DateTime(1984, 03, 27),
+                Name = "Maria",
+                Surname = "Ionova",
+                Photo = File.ReadAllBytes("D:\\StabPhotos\\Female.jpg")
             };
 
             context.Users.Add(u);
+            context.Users.Add(u2);
             context.SaveChanges();
 
             var tr = new Training
@@ -63,7 +70,26 @@ namespace GymTrainingDiary.Model
                 UserId = u.Id
             };
 
+            var tr2 = new Training
+            {
+                TrainingDate = DateTime.Today,
+                TrainingStart = new TimeSpan(17, 0, 0),
+                TrainingFinish = new TimeSpan(19, 30, 0),
+                UserId = u.Id
+            };
+
+            var tr3 = new Training
+            {
+                TrainingDate = DateTime.Today.AddDays(-1),
+                TrainingStart = new TimeSpan(19, 0, 0),
+                TrainingFinish = new TimeSpan(20, 15, 0),
+                UserId = u2.Id
+            };
+
             context.Trainings.Add(tr);
+            context.Trainings.Add(tr2);
+            context.Trainings.Add(tr3);
+
             context.SaveChanges();
 
 
