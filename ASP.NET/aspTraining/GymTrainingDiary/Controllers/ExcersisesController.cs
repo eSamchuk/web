@@ -19,26 +19,27 @@ namespace GymTrainingDiary.Controllers
             return View();
         }
 
-        public ActionResult ViewTrainings()
+        public ActionResult ViewTrainings(DateTime? dateFromSearch = null)
         {
-            return View(new List<Training>(DbDataAccess.GetTrainings()));
-        }
-
-
-        //[Authorize]
-        public ActionResult Search(string id)
-        {
-            //throw new InvalidOperationException("Ooops!");
-            //return Content(id);
-            //return RedirectToAction("Index");
-            return File("D:\\StabPhotos\\Male.jpg", "image/jpg");
-            //return this.Json(new { Name = exName, Type = "Base excersise" }, JsonRequestBehavior.AllowGet);
+            return View(new List<Training>(DbDataAccess.GetTrainings().Where(x => dateFromSearch == null || x.TrainingDate >= dateFromSearch)));
         }
 
         public ActionResult Create()
         {
-            return View();
+            var nModel = new NewTrainigModel();
+            nModel.Users = new List<User>(DbDataAccess.GetUsers());
+            nModel.NewTraining.TrainingDate = DateTime.Today;
+
+            return View(nModel);
         }
+
+        [HttpPost]
+        public ActionResult Create(Training tr)
+        {
+            DbDataAccess.SaveOrUpdateTraining(tr);
+            return RedirectToAction("ViewTrainings");
+        }
+
 
         public ActionResult Details(decimal Id)
         {
@@ -49,9 +50,34 @@ namespace GymTrainingDiary.Controllers
         {
             return View(DbDataAccess.GetTrainingById(Id));
         }
-        public ActionResult Delete()
+
+        [HttpPost]
+        public ActionResult Edit(decimal Id, FormCollection col)
         {
-            return View();
+            var t = DbDataAccess.GetTrainingById(Id);
+
+            if (TryUpdateModel(t))
+            {
+                DbDataAccess.SaveOrUpdateTraining(t);
+                return RedirectToAction("ViewTrainings");
+
+            }
+            return View(t);
+        }
+
+        
+        public ActionResult Delete(decimal Id)
+        {
+            try
+            {
+                DbDataAccess.DeleteTraining(Id);
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            return RedirectToAction("ViewTrainings");
         }
 
     }

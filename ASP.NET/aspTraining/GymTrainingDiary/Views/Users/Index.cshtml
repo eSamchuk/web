@@ -54,7 +54,7 @@
             </td>
             <td>
                 @{
-                    string lt = item.LastLoginDate.ToString("dd.MM.yyyy HH:mm");
+                    string lt = item.LastLoginDate?.ToString("dd.MM.yyyy HH:mm");
                     @Html.DisplayFor(modelItem => lt)
                 }
             </td>

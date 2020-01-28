@@ -8,8 +8,8 @@
     <ProjectGuid>{F53B8680-3023-4743-91EA-155C99414D20}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GymTrainigDiary.Model</RootNamespace>
-    <AssemblyName>GymTrainigDiary.Model</AssemblyName>
+    <RootNamespace>GymTrainingDiary.Model</RootNamespace>
+    <AssemblyName>GymTrainingDiary.Model</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="DAL\Getters.cs" />
     <Compile Include="DAL\Setters.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\DbInitializer.cs" />
     <Compile Include="Model\Excersise.cs" />
     <Compile Include="Model\GymTrainingContext.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Model\Training.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserPermisssion.cs" />
+    <Compile Include="Model\UserProfileData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

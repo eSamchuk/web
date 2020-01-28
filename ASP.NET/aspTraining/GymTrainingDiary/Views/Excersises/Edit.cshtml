@@ -4,15 +4,14 @@
     ViewBag.Title = "EditView";
 }
 
-<h2>EditView</h2>
+<h2>Editing training</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Training</h4>
-        <hr />
+        <br />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
@@ -27,9 +26,6 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TrainingDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @{
-                    string date = Model.TrainingDate.ToString("dd.MM.yyyy");
-                }
                 @Html.EditorFor(model => model.TrainingDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                 @Html.ValidationMessageFor(model => model.TrainingDate, "", new { @class = "text-danger" })
             </div>
@@ -48,14 +44,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TrainingFinish, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TrainingFinish, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TrainingDuration, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TrainingDuration, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TrainingDuration, "", new { @class = "text-danger" })
             </div>
         </div>
 

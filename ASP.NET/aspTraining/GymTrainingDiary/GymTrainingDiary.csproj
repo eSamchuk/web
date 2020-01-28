@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="Models\AboutModel.cs" />
     <Compile Include="Models\ExcersisesModel.cs" />
+    <Compile Include="Models\NewTrainigModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +184,7 @@
     <Content Include="Views\Excersises\_ViewStart.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Excersises\Create.cshtml" />
+    <Content Include="Views\Excersises\_TrainingTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

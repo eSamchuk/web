@@ -1,0 +1,35 @@
+﻿@model GymTrainingDiary.Model.Training
+
+<td class="cells">
+    @Html.DisplayFor(modelModel => Model.User.DisplayName)
+</td>
+
+<td class="cells">
+
+    @{
+        string td = Model.TrainingDate.ToString("dd.MM.yyyy");
+        @Html.DisplayFor(modelModel => td)
+    }
+
+</td>
+
+<td class="cells">
+    @{
+        string st = Model.TrainingStart.ToString();
+        @Html.DisplayFor(modelModel => st)
+    }
+</td>
+
+<td class="cells">
+    @{
+        string ft = Model.TrainingFinish.ToString();
+        @Html.DisplayFor(modelModel => ft)
+    }
+</td>
+
+<td class="cells">
+    @{
+        string dt = Model.TrainingDuration.ToString();
+        @Html.DisplayFor(modelModel => dt)
+    }
+</td>
