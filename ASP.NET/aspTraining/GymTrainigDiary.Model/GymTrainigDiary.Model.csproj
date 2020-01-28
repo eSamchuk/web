@@ -53,15 +53,6 @@
   <ItemGroup>
     <Compile Include="DAL\Getters.cs" />
     <Compile Include="DAL\Setters.cs" />
-    <Compile Include="Migrations\202001221149237_InitialCreate.cs" />
-    <Compile Include="Migrations\202001221149237_InitialCreate.designer.cs">
-      <DependentUpon>202001221149237_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001221157108_FK from Training to User.cs" />
-    <Compile Include="Migrations\202001221157108_FK from Training to User.designer.cs">
-      <DependentUpon>202001221157108_FK from Training to User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\DbInitializer.cs" />
     <Compile Include="Model\Excersise.cs" />
     <Compile Include="Model\GymTrainingContext.cs" />
@@ -76,14 +67,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001221149237_InitialCreate.resx">
-      <DependentUpon>202001221149237_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001221157108_FK from Training to User.resx">
-      <DependentUpon>202001221157108_FK from Training to User.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

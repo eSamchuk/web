@@ -21,9 +21,6 @@ namespace GymTrainingDiary.Controllers
 
         public ActionResult ViewTrainings()
         {
-            //ExcersisesModel model = new ExcersisesModel();
-            //model.Excersises = new List<Training>(DbDataAccess.GetTrainings());
-
             return View(new List<Training>(DbDataAccess.GetTrainings()));
         }
 
@@ -43,14 +40,14 @@ namespace GymTrainingDiary.Controllers
             return View();
         }
 
-        public ActionResult Detailes()
+        public ActionResult Details(decimal Id)
         {
-            return View();
+            return View(DbDataAccess.GetTrainingById(Id));
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(decimal Id)
         {
-            return View();
+            return View(DbDataAccess.GetTrainingById(Id));
         }
         public ActionResult Delete()
         {

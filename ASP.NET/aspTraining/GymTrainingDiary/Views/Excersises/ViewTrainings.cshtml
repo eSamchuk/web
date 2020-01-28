@@ -7,8 +7,8 @@
 }
 
 <h2>List of trainings</h2>
-<div>Displaying general info of @Model.Count() trainings</div>
 
+<div>Displaying general info of @Model.Count() trainings</div>
 
 <table class="table">
 
@@ -16,7 +16,11 @@
 
         <tr>
             <th>
-                Id
+                User name
+            </th>
+
+            <th>
+                Date
             </th>
 
             <th>
@@ -28,7 +32,7 @@
             </th>
 
             <th>
-                User name
+                Duration
             </th>
         </tr>
     </thead>
@@ -37,31 +41,39 @@
     {
         <tr>
             <td class="cells">
-                @{
-                    string t = string.Format("{0:0}", item.Id);
-                    @Html.DisplayFor(modelItem => t)
-                }
+                @Html.DisplayFor(modelItem => item.User.DisplayName)
             </td>
 
             <td class="cells">
 
                 @{
-                    string st = item.StartTime.ToString("dd.MM.yyyy HH:mm");
+                    string td = item.TrainingDate.ToString("dd.MM.yyyy");
+                    @Html.DisplayFor(modelItem => td)
+                }
+
+            </td>
+
+            <td class="cells">
+                @{
+                    string st = item.TrainingStart.ToString();
                     @Html.DisplayFor(modelItem => st)
                 }
-
             </td>
 
             <td class="cells">
                 @{
-                    string ft = item.FinishTime.ToString("dd.MM.yyyy HH:mm", CultureInfo.InvariantCulture);
+                    string ft = item.TrainingFinish.ToString();
                     @Html.DisplayFor(modelItem => ft)
                 }
             </td>
 
             <td class="cells">
-                @Html.DisplayFor(modelItem => item.User.DisplayName)
+                @{
+                    string dt = item.TrainingDuration.ToString();
+                    @Html.DisplayFor(modelItem => dt)
+                }
             </td>
+
 
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
@@ -72,7 +84,7 @@
             </td>
 
             <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-large" })
             </td>
 
         </tr>
