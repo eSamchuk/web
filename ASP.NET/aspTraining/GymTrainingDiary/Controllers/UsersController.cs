@@ -39,7 +39,7 @@ namespace GymTrainingDiary.Controllers
         // GET: Users/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new User());
         }
 
         // POST: Users/Create
